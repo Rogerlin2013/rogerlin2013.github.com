@@ -1,12 +1,11 @@
-<html>
-
-<head>
-<title>我的第一个 HTML 页面</title>
-</head>
-
-<body>
-<p>body 元素的内容会显示在浏览器中。</p>
-<p>title 元素的内容会显示在浏览器的标题栏中。</p>
-</body>
-
-</html>
+---
+layout: default
+title: 我的Blog
+---
+　　<h2>{{ page.title }}</h2>
+　　<p>最新文章</p>
+　　<ul>
+　　　　{% for post in site.posts %}
+　　　　　　<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+　　　　{% endfor %}
+　　</ul>
